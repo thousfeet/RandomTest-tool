@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>互测工具</title>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <h2 style="color:whitesmoke;"> &nbsp;&nbsp;互测工具 <small>2017OOP</small></h2>
+</nav>
+<form action="{% url 'submit_action' %}" method="post" style="padding: 20px; margin: 10px" >
+
+    <div>
+        <p style="font-size: 18px">学号： <span class="label label-default">{{ student.stuId }}</span></p>
+        <input hidden type="text" name="stu_id" value="{{ student.stuId }}">
+        <p style="font-size: 18px">被测方github地址： <span class="label label-default">{{ student2.gitAddr }}</span></p>
+    </div>
+    <br/>
+    <div class="input-group" style="width: 600px;">
+        <span style="font-size: 16px">打分：</span>
+        <input type="text" name="score" class="form-control" placeholder="范围：0~15" aria-describedby="basic-addon1" >
+    </div>
+    <br/>
+    <div class="input-group" style="width: 600px;">
+        <span style="font-size: 16px">理由：</span>
+        <textarea name="reason" class="form-control" placeholder="请输入打分理由..." aria-describedby="basic-addon1" ></textarea>
+    </div>
+    <br/>
+    <p>只可提交一次！请确定无误后再提交。</p>
+    <button class="btn btn-default" type="submit"  align="center">确定提交</button>
+
+</form>
+</body>
+</html>
